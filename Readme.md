@@ -2,6 +2,17 @@
 
 API REST simples desenvolvida com Spring Boot para estudos.
 
+## Tecnologias
+- Java 17
+- Spring Boot
+- Maven
+
+## Funcionalidades
+- Cadastro de usuários
+- Validação de dados
+- Tratamento global de erros
+- Respostas HTTP padronizadas
+
 ## Endpoints
 
 ### GET /usuarios
@@ -16,3 +27,4 @@ Exemplo de body:
   "nome": "João",
   "idade": 25
 }
+

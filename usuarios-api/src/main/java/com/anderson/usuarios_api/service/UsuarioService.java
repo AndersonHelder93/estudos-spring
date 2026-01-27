@@ -1,5 +1,6 @@
 package com.anderson.usuarios_api.service;
 
+import com.anderson.usuarios_api.dto.UsuarioResponseDTO;
 import com.anderson.usuarios_api.model.Usuario;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +23,12 @@ public class UsuarioService {
 
     public UsuarioService(){
         usuarios.add(new Usuario("Admin", 30));
+    }
+
+    public UsuarioResponseDTO toResponse(Usuario usuario){
+        return new UsuarioResponseDTO(
+                usuario.getNome(),
+                usuario.getIdade()
+        );
     }
 }
