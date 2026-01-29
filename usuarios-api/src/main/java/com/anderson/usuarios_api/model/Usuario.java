@@ -15,10 +15,10 @@ public class Usuario {
     private String nome;
     private Integer idade;
 
-    public Usuario(){
+    public Usuario(long l, String anderson, String mail){
     }
 
-    public Usuario(String nome, Integer idade){
+    public Usuario(long l, String nome, Integer idade){
         this.nome = nome;
         this.idade = idade;
     }

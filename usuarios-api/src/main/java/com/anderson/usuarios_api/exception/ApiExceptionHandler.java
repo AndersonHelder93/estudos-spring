@@ -44,5 +44,12 @@ public class ApiExceptionHandler {
                 .body(erros);
     }
 
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String, String>> handleRuntime(RuntimeException ex) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(Map.of("mensagem", ex.getMessage()));
+    }
+
 
 }
