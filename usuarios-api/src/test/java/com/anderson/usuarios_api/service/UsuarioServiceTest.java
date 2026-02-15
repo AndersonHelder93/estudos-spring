@@ -8,8 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -18,8 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 
-@SpringBootTest
-@ActiveProfiles("test")
+
 @ExtendWith(MockitoExtension.class)
 class UsuarioServiceTest {
 
@@ -50,8 +48,8 @@ class UsuarioServiceTest {
     void quandoUsuarioNaoExistir(){
 
         Long id = 99L;
-        Mockito.when(usuarioRepository.findById(id))
-                .thenReturn(Optional.empty());
+        /*Mockito.when(usuarioRepository.findById(id))
+                .thenReturn(Optional.empty());*/
 
         RuntimeException exception = assertThrows(
                 RuntimeException.class,
