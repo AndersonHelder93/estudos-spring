@@ -21,7 +21,10 @@ jobs:
           java-version: '17'
 
       - name: Build com Maven
+        working-directory: usuarios-api
         run: mvn clean verify
 
       - name: Build da imagem Docker
+        working-directory: usuarios-api
         run: docker build -t usuarios-api .
+
