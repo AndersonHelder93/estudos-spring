@@ -37,7 +37,7 @@ jobs:
 
       - name: Build com Maven
         working-directory: usuarios-api
-        run: mvn clean verify
+        run: mvn clean verify -Dspring.profiles.active=test
 
       - name: Build da imagem Docker
         working-directory: usuarios-api
