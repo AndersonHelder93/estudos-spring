@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 import java.util.List;
 
-@ActiveProfiles("test")
+
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
 
