@@ -11,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +29,8 @@ class UsuarioServiceTest {
     @Test
     void deveListarUsuariosComSucesso() {
 
-        Usuario usuario = new Usuario(1L, "Anderson", 30);
+        Usuario usuario = new Usuario(1L, "Anderson", 30,
+                "anderson@email.com", "123456", "ROLE_USER");
         Mockito.when(usuarioRepository.findAll())
                 .thenReturn(List.of(usuario));
 

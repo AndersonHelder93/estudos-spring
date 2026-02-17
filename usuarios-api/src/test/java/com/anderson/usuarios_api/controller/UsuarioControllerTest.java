@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 import java.util.List;
 
-
+@ActiveProfiles("test")
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
 
@@ -36,10 +36,11 @@ public class UsuarioControllerTest {
 
     @Test
     void deveListarUsuarioComSucesso() throws Exception {
-        Usuario usuario = new Usuario(1L, "Anderson", 25);
+        Usuario usuario = new Usuario(1L, "Anderson", 30,
+                "anderson@email.com", "123456", "ROLE_USER");
 
         UsuarioResponseDTO response =
-                new UsuarioResponseDTO("Anderson", 25);
+                new UsuarioResponseDTO("Anderson", 30);
 
         Mockito.when(usuarioService.listar())
                 .thenReturn(List.of(usuario));
@@ -51,7 +52,11 @@ public class UsuarioControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$[0].nome").value("Anderson"))
-                .andExpect(jsonPath("$[0].idade").value(25));
+                .andExpect(jsonPath("$[0].idade").value(25))
+                .andExpect(jsonPath("$[0].email").value("anderson@email.com"))
+                .andExpect(jsonPath("$[0].senha").value("123456"))
+                .andExpect(jsonPath("$[0].role").value("ROLE_USER"));;
+
     }
         @Test
         void deveRetornar404QuandoUsuarioNaoExistir() throws Exception {

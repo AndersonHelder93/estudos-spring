@@ -43,7 +43,12 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<UsuarioResponseDTO> salvar(@RequestBody  @Valid UsuarioRequestDTO dto){
 
-        Usuario usuario = new Usuario(1L, dto.getNome(), dto.getIdade());
+        Usuario usuario = new Usuario();
+        usuario.setNome(dto.getNome());
+        usuario.setIdade(dto.getIdade());
+        usuario.setEmail(dto.getEmail());
+        usuario.setSenha(dto.getSenha());
+
         Usuario salvo = service.salvar(usuario);
 
         return ResponseEntity

@@ -1,9 +1,6 @@
 package com.anderson.usuarios_api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Usuario {
@@ -13,14 +10,35 @@ public class Usuario {
     private Long id;
 
     private String nome;
+
     private Integer idade;
 
-    public Usuario(long l, String anderson, String mail){
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    private String senha;
+
+    private String role;
+
+
+    public Usuario(){
     }
 
-    public Usuario(long l, String nome, Integer idade){
+    public Usuario(long id, String nome, Integer idade, String email, String senha, String role){
         this.nome = nome;
         this.idade = idade;
+        this.email = email;
+        this.senha = senha;
+        this.role = role;
+    }
+
+    public Usuario(Long id, String nome, Integer idade, String email, String role) {
+        this.id = id;
+        this.nome = nome;
+        this.idade = idade;
+        this.email = email;
+        this.role = role;
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -37,5 +55,37 @@ public class Usuario {
 
     public void setIdade(Integer idade) {
         this.idade = idade;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
